@@ -47,9 +47,22 @@ namespace WebAPITemplate.Data.Services
             //can also use public List<Book> GetAllBooks() => _context.Books.ToList();
         }
 
-        public Book GetBookById(int bookId)
+        public BookWithAuthorsVM GetBookById(int bookId)
         {
-            return _context.Books.FirstOrDefault(n => n.Id == bookId);
+            var _bookWithAuthors = _context.Books.Where(n => n.Id == bookId).Select(book => new BookWithAuthorsVM()
+            {
+                Title = book.Title,
+                Description = book.Description,
+                Genre = book.Genre,
+                isRead = book.isRead,
+                DateRead = book.DateRead,
+                Rating = book.Rating,
+                CoverUrl = book.CoverUrl,
+                PublisherName = book.Publisher.Name,
+                AuthorNames = book.Book_Authors.Select(n => n.Author.FullName).ToList()
+            }).FirstOrDefault();
+
+            return _bookWithAuthors;
         }
 
         public Book UpdateBookById(int bookId, BookVM book)
