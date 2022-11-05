@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPITemplate.Data.Services;
 
 namespace WebAPITemplate.Controllers
 {
@@ -7,5 +8,14 @@ namespace WebAPITemplate.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
+        //inject service
+        public BooksService _booksservice;
+
+        public BooksController(BooksService booksservice)
+        {
+            _booksservice = booksservice;
+        }
+
+
     }
 }

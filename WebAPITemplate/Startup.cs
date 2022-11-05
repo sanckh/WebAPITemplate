@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAPITemplate.Data;
+using WebAPITemplate.Data.Services;
 
 namespace WebAPITemplate
 {
@@ -32,6 +33,9 @@ namespace WebAPITemplate
 
             //Configure DbContext with SQL
             service.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
+
+            //configure the services
+            service.AddTransient<BooksService>();
 
             service.AddSwaggerGen(c =>
             {
