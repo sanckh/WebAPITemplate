@@ -46,5 +46,11 @@ namespace WebAPITemplate.Controllers
 
             return Ok(updatedBook);
         }
+        [HttpDelete("delete-book-by-id/{id}")]
+        public IActionResult DeleteBookById(int id)
+        {
+            _booksservice.DeleteBookById(id);
+            return Ok();
+        }
     }
 }

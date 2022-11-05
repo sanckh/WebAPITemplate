@@ -49,16 +49,26 @@ namespace WebAPITemplate.Data.Services
                 _book.Title = book.Title;
                 _book.Author = book.Author;
                 _book.Description = book.Description;
+                _book.DateRead = book.isRead ? book.DateRead.Value : null;
                 _book.Genre = book.Genre;
                 _book.isRead = book.isRead;
-                _book.DateRead = book.DateRead;
-                _book.Rating = book.Rating;
+                _book.Rating = book.isRead ? book.Rating.Value : null;
                 _book.CoverUrl = book.CoverUrl;
 
                 _context.SaveChanges();
             }
 
             return _book;
+        }
+
+        public void DeleteBookById(int bookId)
+        {
+            var _book = _context.Books.FirstOrDefault(n => n.Id == bookId);
+            if (_book != null)
+            {
+                _context.Books.Remove(_book);
+                _context.SaveChanges();
+            }
         }
     }
 }
