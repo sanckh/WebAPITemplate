@@ -2,6 +2,7 @@
 {
     public class Publisher
     {
+        //one to many example. One publisher, multiple books
         public int Id { get; set; }
         public string Name { get; set; }
 

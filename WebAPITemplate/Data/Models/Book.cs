@@ -15,8 +15,11 @@
 
 
         //navigation props
-        public int PublisherId { get; set; }
+        public int? PublisherId { get; set; }
         public Publisher Publisher { get; set; }
+
+        //book author nav prop
+        public List<Book_Author> Book_Authors { get; set; }
 
 
     }
