@@ -40,5 +40,25 @@ namespace WebAPITemplate.Data.Services
         {
             return _context.Books.FirstOrDefault(n => n.Id == bookId);
         }
+
+        public Book UpdateBookById(int bookId, BookVM book)
+        {
+            var _book = _context.Books.FirstOrDefault(n => n.Id == bookId);
+            if(_book != null)
+            {
+                _book.Title = book.Title;
+                _book.Author = book.Author;
+                _book.Description = book.Description;
+                _book.Genre = book.Genre;
+                _book.isRead = book.isRead;
+                _book.DateRead = book.DateRead;
+                _book.Rating = book.Rating;
+                _book.CoverUrl = book.CoverUrl;
+
+                _context.SaveChanges();
+            }
+
+            return _book;
+        }
     }
 }

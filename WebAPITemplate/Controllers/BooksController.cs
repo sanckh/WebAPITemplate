@@ -25,7 +25,7 @@ namespace WebAPITemplate.Controllers
             return Ok();
         }
 
-        [HttpGet("get_all-books")]
+        [HttpGet("get-all-books")]
         public IActionResult GetAllBooks()
         {
             var allBooks = _booksservice.GetAllBooks();
@@ -37,6 +37,14 @@ namespace WebAPITemplate.Controllers
         {
             var book = _booksservice.GetBookById(id);
             return Ok(book);
+        }
+
+        [HttpPut("update-book-by-id/{id}")]
+        public IActionResult UpdateBookById(int id, [FromBody]BookVM book)
+        {
+            var updatedBook = _booksservice.UpdateBookById(id, book);
+
+            return Ok(updatedBook);
         }
     }
 }
