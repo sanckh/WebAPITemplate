@@ -15,7 +15,6 @@ namespace WebAPITemplate.Data
                     context.Books.AddRange(new Book()
                     {
                         Title = "Go Ask Alice",
-                        Author = "Anonymous",
                         Description = "The harrowing true story of a teenager's descent into the seductive world of drugs.",
                         Genre = "Fiction",
                         isRead = true,
@@ -28,7 +27,6 @@ namespace WebAPITemplate.Data
                     new Book()
                     {
                         Title = "Jay's Journal",
-                        Author = "Anonymous",
                         Description = "Jay thought he could handle anything. The first time he took drugs was for fun. But what started as an escape quickly spiraled into a haze of addiction.",
                         Genre = "Fiction",
                         isRead = true,

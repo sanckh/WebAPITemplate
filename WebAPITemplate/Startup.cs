@@ -36,6 +36,8 @@ namespace WebAPITemplate
 
             //configure the services
             service.AddTransient<BooksService>();
+            service.AddTransient<AuthorsService>();
+            service.AddTransient<PublishersService>();
 
             service.AddSwaggerGen(c =>
             {
@@ -76,7 +78,7 @@ namespace WebAPITemplate
                 endpoints.MapControllers();
             });
 
-            AppDbInitializer.Seed(app);
+            //AppDbInitializer.Seed(app);
 
         }
     }

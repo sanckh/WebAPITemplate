@@ -17,10 +17,10 @@ namespace WebAPITemplate.Controllers
             _booksservice = booksservice;
         }
 
-        [HttpPost("add-book")]
-        public IActionResult AddBook([FromBody]BookVM book)
+        [HttpPost("add-book-with-authors")]
+        public IActionResult AddBookWithAuthors([FromBody]BookVM book)
         {
-            _booksservice.AddBook(book);
+            _booksservice.AddBookWithAuthors(book);
 
             return Ok();
         }

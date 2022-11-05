@@ -11,5 +11,9 @@
         public int? Rating { get; set; }
         public string CoverUrl { get; set; }
         public DateTime DateAdded { get; set; }
+
+        //represent new db schema
+        public int PublisherId { get; set; }
+        public List<int> AuthorIds { get; set; }
     }
 }

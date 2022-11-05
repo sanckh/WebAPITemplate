@@ -11,23 +11,34 @@ namespace WebAPITemplate.Data.Services
             _context = context;
         }
 
-        public void AddBook(BookVM book)
+        public void AddBookWithAuthors(BookVM book)
         {
             var _book = new Book()
             {
                 Title = book.Title,
-                Author = book.Author,
                 Description = book.Description,
                 Genre = book.Genre,
                 isRead = book.isRead,
                 DateRead = book.DateRead,
                 Rating = book.Rating,
                 CoverUrl = book.CoverUrl,
-                DateAdded = DateTime.Now
+                DateAdded = DateTime.Now,
+                PublisherId = book.PublisherId
             };
 
             _context.Books.Add(_book);
             _context.SaveChanges();
+
+            foreach (var id in book.AuthorIds)
+            {
+                var _book_author = new Book_Author()
+                {
+                    BookId = _book.Id,
+                    AuthorId = id
+                };
+                _context.Book_Authors.Add(_book_author);
+                _context.SaveChanges();
+            }
         }
 
         public List<Book> GetAllBooks()
@@ -47,7 +58,6 @@ namespace WebAPITemplate.Data.Services
             if(_book != null)
             {
                 _book.Title = book.Title;
-                _book.Author = book.Author;
                 _book.Description = book.Description;
                 _book.DateRead = book.isRead ? book.DateRead.Value : null;
                 _book.Genre = book.Genre;
