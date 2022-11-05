@@ -24,5 +24,19 @@ namespace WebAPITemplate.Controllers
 
             return Ok();
         }
+
+        [HttpGet("get_all-books")]
+        public IActionResult GetAllBooks()
+        {
+            var allBooks = _booksservice.GetAllBooks();
+            return Ok(allBooks);
+        }
+
+        [HttpGet("get-book-by-id/{id}")]
+        public IActionResult GetBookById(int id)
+        {
+            var book = _booksservice.GetBookById(id);
+            return Ok(book);
+        }
     }
 }
