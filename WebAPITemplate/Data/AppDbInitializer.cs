@@ -22,9 +22,25 @@ namespace WebAPITemplate.Data
                         DateRead = DateTime.Now,
                         Rating = 4,
                         CoverUrl = "Placeholder",
+                        DateAdded = DateTime.Now  
+                    },
+
+                    new Book()
+                    {
+                        Title = "Jay's Journal",
+                        Author = "Anonymous",
+                        Description = "Jay thought he could handle anything. The first time he took drugs was for fun. But what started as an escape quickly spiraled into a haze of addiction.",
+                        Genre = "Fiction",
+                        isRead = true,
+                        DateRead = DateTime.Now,
+                        Rating = 4,
+                        CoverUrl = "Placeholder",
                         DateAdded = DateTime.Now
-                        
-                    });
+                    }
+
+                    );
+
+                    context.SaveChanges();
                 }
             }
         }
