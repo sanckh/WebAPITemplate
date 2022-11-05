@@ -24,5 +24,13 @@ namespace WebAPITemplate.Controllers
             return Ok();
         }
 
+        [HttpGet("get-author-with-books-by-id/{id}")]
+        public IActionResult GetAuthorWithBooks(int id)
+        {
+            var response = _authorsservice.GetAuthorWithBooks(id);
+
+            return Ok(response);
+        }
+
     }
 }
