@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPITemplate.Data.Services;
+using WebAPITemplate.Data.ViewModels;
 
 namespace WebAPITemplate.Controllers
 {
@@ -16,6 +17,12 @@ namespace WebAPITemplate.Controllers
             _booksservice = booksservice;
         }
 
+        [HttpPost("add-book")]
+        public IActionResult AddBook([FromBody]BookVM book)
+        {
+            _booksservice.AddBook(book);
 
+            return Ok();
+        }
     }
 }
