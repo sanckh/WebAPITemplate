@@ -14,6 +14,10 @@
         public DateTime DateAdded { get; set; }
 
 
+        //navigation props
+        public int PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
+
 
     }
 }
