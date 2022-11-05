@@ -17,9 +17,9 @@ namespace WebAPITemplate.Controllers
         }
 
         [HttpPost("add-author")]
-        public IActionResult AddAuthor([FromBody] AuthorVM book)
+        public IActionResult AddAuthor([FromBody] AuthorVM author)
         {
-            _authorsservice.AddAuthor(book);
+            _authorsservice.AddAuthor(author);
 
             return Ok();
         }
